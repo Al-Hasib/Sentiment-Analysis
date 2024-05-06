@@ -1,49 +1,47 @@
 import streamlit as st
 from PIL import Image
+from utils import *
+
+
+def textblobSentiment(user_input):
+    textblob_sentiment = textblob_score(user_input)
+    textblob_str  = (f"**TextBlob Score :** {textblob_sentiment}")
+    st.write(textblob_str)
+
+def VaderSentiment(user_input):
+    vader_sentiment = vader_score(user_input)
+    vader_str = (f"**VADER Score :** {vader_sentiment}")
+    st.write(vader_str)
 
 def main():
     st.title("Sentiment Analysis App")
+    st.subheader("You typed:")
     # You can load an image from a file path or URL
     image_path = "Sentiment-Analysis.png"
     st.image(image_path, use_column_width=True)
     # Create a text input box for the user to input the string
-    user_input = st.text_input("Enter your string:")
-    # create textBlob string
-    text = TextBlob(user_input)
-    subjectivity = ("Subjectivity of text: ",getSubjectivity(text))
-    polarity = ("Polarity of text: ", getPolarity(text)) 
+    user_input = st.text_area(label="Enter your string:", height= 200)
 
-    # Display the string entered by the user
-    st.write("**Your String:**")
-    st.write(subjectivity)
-    st.write(polarity)
+    # Sample data
+    data = ["TextBlob", "Vader", "Transformers", "All"]
 
+    # Filter options
+    selected_option = st.sidebar.selectbox("Select an option", data)
 
+    if selected_option=="TextBlob":
+        textblobSentiment(user_input)
 
+    elif selected_option=="Vader":
+        VaderSentiment(user_input)
 
-
-
-
-def getSubjectivity(text):
-    # it ranges from 0 to 1 whether close to 0 indicates the factual information and close to 1 indicates the personal opinion
-    subjectivity =  text.sentiment.subjectivity
-    if subjectivity < 0.05:
-        return f"factual information ({subjectivity})"
+    elif selected_option=="Transformers":
+        st.write("Not added yet")
+    
     else:
-        return f"personal information ({subjectivity})"
-
-def getPolarity(text):
-    # ranges -1 to 1 whether close to -1 is negative and close to 1 is posivite sentiment and neither close to -1 and 1 is neutral
-    polarity = text.sentiment.polarity
-    if polarity <= -0.05:
-        return f"negative sentiment ({polarity})"
-    elif polarity >-0.05 and polarity <0.05:
-        return f"neutral sentiment ({polarity})"
-    else:
-        return f"positive sentiment ({polarity})"
-
-
-   
+        textblobSentiment(user_input)
+        VaderSentiment(user_input)
+        Transformers_str = (f"**Transformer Score :** Not added yet")
+        st.write(Transformers_str)
 
 if __name__ == "__main__":
     main()
