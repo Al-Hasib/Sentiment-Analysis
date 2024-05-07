@@ -27,7 +27,7 @@ if __name__=="__main__":
     scores, positive, neutral, negative, compound = sentiment_scores(text)
 
     print(f"\nThe Output : {scores}")
-    print(f"The text is {positive:.2f}% Positive, {negative:.2f}% Negative & {neutral:.2f}% neutral")
+    #print(f"The text is {positive:.2f}% Positive, {negative:.2f}% Negative & {neutral:.2f}% neutral")
 
     # compound more than 5% is positive, from -5% to 5% neutral and less than 5% 
     if compound > 5:
