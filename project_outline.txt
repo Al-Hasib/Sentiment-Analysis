@@ -1,0 +1,3 @@
+1. Perform sentiment analysis with TextBlob, Vader and Transformers.
+2. train own model for sentiment analysis with Machine Learning model, LSTM and fine tuning Transformers
+3. perform streamlit for visualizing all the materials.
