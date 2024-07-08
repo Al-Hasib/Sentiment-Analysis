@@ -2,9 +2,23 @@
 Sentiment Analysis is a text classification problem that is used to understand the human behaiour to upgrade business or organization. The repository will show end to end project and various experiments.
 
 
-The repository is responsible for 3 different approaches.
-1. Inference Sentiment with TextBlob, VADER & Transformers model. Then Compare the performance of different methodologies
-2. Create a Web App using Streamlit
-3. Create a model using ML Algorithms, RNNs, LSTMs, GRU and fine tuning transformers models with custom dataset
+The repository is responsible for 2 different approaches.
+* Inference Sentiment with TextBlob, VADER & Transformers model. Then Compare the performance of different methodologies
+* Create a Web App using Streamlit
 
-### Part 1 (Inference sentiment & Compare Performance)
+## Run the Sentiment Analysis Project
+Clone the repository
+```python
+git clone https://github.com/Al-Hasib/Sentiment-Analysis.git
+```
+install the requirements
+```python
+pip install -r requirements.txt
+```
+Run the app
+```python 
+streamlit run app.py
+```
+
+## Thank You
+
